@@ -21,7 +21,7 @@ const carouselSlides = ['bg-1', 'bg-2', 'bg-3']
 .carousel {
   position: relative;
   max-height: 100vh;
-  height: 100vh;
+  height: 98vh;
 }
 
 .carousel .slide-info {
