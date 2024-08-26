@@ -7,8 +7,6 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
-
 <style scoped>
 .slide-enter-active,
 .slide-leave-active {

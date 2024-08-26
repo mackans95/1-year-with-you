@@ -3,7 +3,7 @@
     <Carousel class="carousel" v-slot="{ currentSlide }">
       <Slide v-for="(slide, index) in carouselSlides" :key="index">
         <div v-show="currentSlide === index + 1" class="slide-info">
-          <img :src="getImageUrl(slide)" alt="" />
+          <img :src="`/${slide}.jpeg`" alt="">
         </div>
       </Slide>
     </Carousel>
@@ -15,10 +15,6 @@ import Carousel from '../components/Carousel.vue'
 import Slide from '../components/Slide.vue'
 
 const carouselSlides = ['bg-1', 'bg-2', 'bg-3']
-
-function getImageUrl(slideName: string) {
-  return new URL(`../assets/${slideName}.jpeg`, import.meta.url) as unknown as string
-}
 </script>
 
 <style scoped>
