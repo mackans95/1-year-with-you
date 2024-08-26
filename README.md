@@ -1,39 +1,11 @@
 # vue-slider-for-anniversary
 
-This template should help get you started developing with Vue 3 in Vite.
+A cute little image slider display, which will contain some text talking about our 1 year together so far! ❤️
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+## Left to do:
+1. make sure the images don't overflow and actually fit properly to the size of the browser window.
+2. add a text display for each Slide component, so i can fill them with descriptions of our journey so far.
+3. possibly tweak how the next/prev slide button look and function, they seem a bit unresponsive sometimes.
+4. hopefully be able to add some slow reveal of the text, so it looks nice, so it like fades in like it's being written in real-time.
+5. find and add all the pictures i want, from Germany, Hven, just at home, and all that stuff.
+6. figure out the "storyline" for the flow of the pictures, make it make sense and have a nice and cute ending.
