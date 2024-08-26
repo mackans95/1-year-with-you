@@ -13,6 +13,11 @@
           class="slide-info"
         >
           <img :src="`/${slide}.jpeg`" />
+          <div class="text">
+            <p class="text-box">
+              {{ texts[index] }}
+            </p>
+          </div>
         </div>
       </Slide>
     </Carousel>
@@ -26,6 +31,11 @@
 
   // -- VARIABLES --
   const carouselSlides = ['bg-1', 'bg-2', 'bg-3']
+  const texts = [
+    "Hello this is text number one",
+    "This here would be text number 2",
+    "And lastly this is the text for image number 3"
+  ]
 </script>
 
 <style lang="scss" scoped>
@@ -48,6 +58,36 @@
         height: 100%;
         object-fit: cover;
         user-select: none;
+      }
+    }
+
+    .text {
+      display: flex;
+      justify-content: center;
+
+      .text-box {
+        position: absolute;
+        max-width: 35rem;
+        top: 10rem;
+        right: 5rem;
+        left: 60%;
+        color: #fff;
+        overflow: hidden;
+        filter: grayscale(5) contrast(9) drop-shadow(0.05em 0.05em red);
+        word-wrap: break-word;
+        white-space: wrap;
+        font-size: 2.5rem;
+        user-select: none;
+        margin: 0 auto;
+        letter-spacing: 0.15em;
+        animation:
+          easeText .7s steps(50, end);
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes easeText {
+        0% { opacity: 0;}
+        100% { opacity: 1;}
       }
     }
   }
