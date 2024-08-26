@@ -9,4 +9,4 @@ A cute little image slider display, which will contain some text talking about o
 - [ ] Hopefully be able to add some slow reveal of the text, so it looks nice, so it like fades in like it's being written in real-time.
 - [ ] Find and add all the pictures i want, from Germany, Hven, just at home, and all that stuff.
 - [ ] Figure out the "storyline" for the flow of the pictures, make it make sense and have a nice and cute ending.
-- [ ] Make sure the images cant be selected, it happens sometimes and makes it look weird.
+- [x] Make sure the images cant be selected, it happens sometimes and makes it look weird.
