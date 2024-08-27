@@ -12,10 +12,10 @@
           v-show="currentSlide === index + 1"
           class="slide-info"
         >
-          <img :src="`/${slide}.jpeg`" />
+          <img :src="`/${slide.image}.jpeg`" />
           <div class="text">
             <p class="text-box">
-              {{ texts[index] }}
+              {{ slide.text }}
             </p>
           </div>
         </div>
@@ -30,12 +30,26 @@
   import Slide from '../components/Slide.vue'
 
   // -- VARIABLES --
-  const carouselSlides = ['bg-1', 'bg-2', 'bg-3']
-  const texts = [
-    "Hello this is text number one",
-    "This here would be text number 2",
-    "And lastly this is the text for image number 3"
+  const carouselSlides = [
+    {
+      image: 'bg-1',
+      text: 'Hello this is text number one'
+    },
+    {
+      image: 'bg-2',
+      text: 'This here would be text number 2'
+    },
+    {
+      image: 'bg-3',
+      text: 'And lastly this is the text for image number 3'
+    }
   ]
+  // const carouselSlides = ['bg-1', 'bg-2', 'bg-3']
+  // const texts = [
+  //   'Hello this is text number one',
+  //   'This here would be text number 2',
+  //   'And lastly this is the text for image number 3'
+  // ]
 </script>
 
 <style lang="scss" scoped>
@@ -56,6 +70,7 @@
       img {
         min-width: 100%;
         height: 100%;
+        width: 98vw;
         object-fit: cover;
         user-select: none;
       }
@@ -80,14 +95,17 @@
         user-select: none;
         margin: 0 auto;
         letter-spacing: 0.15em;
-        animation:
-          easeText .7s steps(50, end);
+        animation: easeText 0.7s steps(50, end);
         animation-fill-mode: forwards;
       }
 
       @keyframes easeText {
-        0% { opacity: 0;}
-        100% { opacity: 1;}
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
       }
     }
   }
