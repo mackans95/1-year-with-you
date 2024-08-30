@@ -31,8 +31,13 @@
   // -- IMPORTS --
   import Carousel from '../components/Carousel.vue'
   import Slide from '../components/Slide.vue'
+  import audioFile from '../../public/Dandelions.mp4'
+import { onMounted, onUnmounted } from 'vue';
 
   // -- VARIABLES --
+  const song = new Audio(audioFile)
+
+
   const carouselSlides = [
     {
       image: 'bg-1',
@@ -75,6 +80,16 @@
       text: 'Men vad jag kan säga med absolut säkerhet, är jag ser fram emot så mycket att spendera varje dag med dig, min älskade lilla tösabit, i alla våra år framåt. Älskar dig <3'
     }
   ]
+
+  // -- LIFE CYCLE HOOKS -- 
+  onMounted(() => {
+    song.volume = 0.2
+    song.play()
+  })
+
+  onUnmounted(() => {
+    song.pause()
+  })
 </script>
 
 <style lang="scss" scoped>
