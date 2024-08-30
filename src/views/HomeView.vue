@@ -1,128 +1,259 @@
 <template>
   <div class="home">
-    <Carousel class="carousel" v-slot="{ currentSlide }">
-      <Slide v-for="(slide, index) in carouselSlides" :key="index">
-        <div v-show="currentSlide === index + 1" class="slide-info">
-          <img :src="`/${slide.image}.jpeg`" :class="`${slide.image}`" />
-          <div class="text">
-            <p class="text-box">
-              {{ slide.text }}
-            </p>
-          </div>
-        </div>
-      </Slide>
-    </Carousel>
+    <img src="/bg-home.jpeg" alt="">
+    <p class="text-box">1 år med dig</p>
+  </div>
+  <div class="body">
+    <div class="gift-container" :class="{ active: hasOpenedGiftBox }">
+      <div class="shadow" :class="{ active: hasOpenedGiftBox }"></div>
+      <div class="gift-box" :class="{ active: hasOpenedGiftBox }">
+        <div @click="openGiftBox" class="click" :class="{ active: hasOpenedGiftBox }"></div>
+      </div>
+      <div class="text" :class="{ active: hasOpenedGiftBox, active2: !hasOpenedGiftBox }">
+        <button @click="goToCarousel" class="start-slide">Påbörja Resan</button>
+      </div>
+    </div>
   </div>
 </template>
 
-<script setup lang="ts">
-// -- IMPORTS --
-import Carousel from '../components/Carousel.vue'
-import Slide from '../components/Slide.vue'
+<script lang="ts" setup>
+import router from '@/router';
+import { ref } from 'vue';
 
-// -- VARIABLES --
-const carouselSlides = [
-  {
-    image: 'bg-1',
-    text: 'Vi har haft en väldigt intressant år tillsammans, känns som vi har gjort så mycket och hunnit med en massa, som tex...'
-  },
-  {
-    image: 'bg-2',
-    text: 'Tyskland med Ebba och Adam! Det var så mysigt att va där i snön med dig, och jag är taggad på ifall vi skulle åka tillbaks...'
-  },
-  {
-    image: 'bg-3',
-    text: 'Flytt till nya fina lägenheten! Den är den bästa lägenhet jag har sett, och jag älskar att bo här tillsammans med dig...'
-  },
-  {
-    image: 'bg-4',
-    text: 'Jul i Vendel! Mysig stämning och god mat, och speciellt mysigt i bastun med snön runtom, och att rulla oss nakna i snön var så kul...'
-  },
-  {
-    image: 'bg-5',
-    text: 'Massa hemmamys! Helt enkelt bara en fantastisk vardag med dig, och allt ditt sass och jävlande (som jag älskar btw)...'
-  },
-  {
-    image: 'bg-6',
-    text: 'Hven! Bästa iden nånsin att hyra golfbil, och så mysigt i regnet! Och dom där våfflorna... Mums!'
-  },
-  {
-    image: 'bg-7',
-    text: 'Pink! Mycket folk, men så cool livespelning! Och det var skitroligt att vara där med dig...'
-  },
-  {
-    image: 'bg-8',
-    text: 'Och framför oss har vi så mycket mer, få julpynta och baka tillsammans i fina lägenheten, och så många fler saker...'
-  },
-  {
-    image: 'bg-9',
-    text: 'Och jag kan inte säga att jag vet vad som kommer hända eller vad vi kommer hitta på resten av livet (fast jag är säker på ett par saker)...'
-  },
-  {
-    image: 'bg-10',
-    text: 'Men vad jag kan säga med absolut säkerhet, är jag ser fram emot så mycket att spendera varje dag med dig, min älskade lilla tösabit, i alla våra år framåt. Älskar dig <3'
-  }
-]
+const hasOpenedGiftBox = ref(false)
+
+function openGiftBox() {
+  hasOpenedGiftBox.value = !hasOpenedGiftBox.value
+}
+
+function goToCarousel() {
+  router.push('/carousel')
+}
+
 </script>
 
-<style lang="scss" scoped>
-.carousel {
+<style scoped lang="scss">
+.home {
   position: relative;
   max-height: 100vh;
   height: 98vh;
+}
 
-  .slide-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    max-height: 100%;
-    max-width: 100vw;
-    height: 100%;
+img {
+  min-width: 100%;
+  height: 100%;
+  width: 98vw;
+  object-fit: contain;
+  user-select: none;
+  background: rgb(172, 109, 109);
+}
 
-    img {
-      min-width: 100%;
-      height: 100%;
-      width: 98vw;
-      object-fit: contain;
-      user-select: none;
-      background: rgb(172, 109, 109);
-    }
+.text-box {
+  color: white;
+  position: absolute;
+  font-size: 8rem;
+  top: 10px;
+  left: calc(50% - 23rem);
+  background-color: rgb(212, 172, 172);
+  text-align: center;
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.start-slide {
+  background-color: rgb(218, 66, 66);
+  color: white;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: monospace;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.start-slide:hover {
+  background-color: rgb(211, 102, 102);
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #25252b;
+}
+
+.gift-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 20%;
+}
+
+.gift-container.active {
+  animation: Vibration 1s ease forwards;
+}
+
+@keyframes Vibration {
+  0% {
+    transform: scale(1, 1);
   }
 
-  .text {
-    display: flex;
-    justify-content: center;
-
-    .text-box {
-      position: absolute;
-      max-width: 35rem;
-      top: 10rem;
-      right: 5rem;
-      left: 60%;
-      color: white;
-      background: inherit;
-      overflow: hidden;
-      filter: grayscale(5) contrast(9) drop-shadow(0.05em 0.05em black);
-      word-wrap: break-word;
-      white-space: wrap;
-      font-size: 2.5rem;
-      user-select: none;
-      margin: 0 auto;
-      letter-spacing: 0.15em;
-      animation: easeText 0.7s steps(50, end);
-      animation-fill-mode: forwards;
-    }
-
-    @keyframes easeText {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 1;
-      }
-    }
+  25% {
+    transform: scale(.95, 1.05);
   }
+
+  50% {
+    transform: scale(1, 1, .9);
+  }
+
+  70% {
+    transform: scale(.9, 1.1);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.gift-container .gift-box {
+  position: absolute;
+  height: 200px;
+  width: 300px;
+  background: #ec9c46;
+  animation: Bounce 4s ease infinite forwards;
+}
+
+@keyframes Bounce {
+  0% {
+    transform: translateY(-24px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-24px);
+  }
+}
+
+.gift-box.active {
+  animation: none;
+}
+
+
+.gift-box::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 200px;
+  background: #e76f51;
+  left: 124px;
+}
+
+.gift-box::after {
+  content: '';
+  position: absolute;
+  box-shadow: inset 0 10px rgba(0, 0, 0, .3);
+  width: 300px;
+  height: 200px;
+}
+
+.click {
+  position: absolute;
+  background: #ec9c4a;
+  width: 340px;
+  height: 90px;
+  top: -90px;
+  left: -20px;
+  cursor: pointer;
+  z-index: 1;
+  transition: .5s ease;
+}
+
+.click.active {
+  transition-delay: 1s;
+  transform: translateY(-240px);
+}
+
+.click::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 90px;
+  background: #e76f51;
+  left: 144px;
+  z-index: 2;
+}
+
+.click::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 0;
+  border-bottom: 60px solid #e76f51;
+  border-top: 60px solid #e76f51;
+  border-left: 0px solid transparent;
+  border-right: 60px solid transparent;
+  transform: rotate(-90deg);
+  top: -93px;
+  left: 136px;
+  z-index: 3;
+}
+
+.gift-container .shadow {
+  content: '';
+  position: relative;
+  width: 340px;
+  height: 40px;
+  background: rgba(0, 0, 0.4);
+  top: 100px;
+  border-radius: 50%;
+  left: -4px;
+  animation: BounceOut 4s ease infinite forwards;
+}
+
+.gift-container .shadow.active {
+  animation: none;
+}
+
+@keyframes BounceOut {
+  0% {
+    transform: translateY(24px);
+    scale: .7;
+  }
+
+  50% {
+    transform: translateY(0px);
+    scale: 1;
+  }
+
+  100% {
+    transform: translateY(24px);
+    scale: .7;
+  }
+}
+
+.text {
+  position: absolute;
+  background: #ec9c4a;
+  text-align: center;
+  font-size: 20px;
+  color: #e76f51;
+  border-radius: 20px;
+  z-index: -1;
+  transition: .5s ease;
+  transition-delay: 1.2s;
+}
+
+.text.active {
+  scale: 1;
+  transform: translateY(-240px);
+}
+
+.text.active2 {
+  top: 0;
+  transition-delay: .2s;
 }
 </style>

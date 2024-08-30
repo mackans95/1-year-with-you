@@ -10,6 +10,6 @@ A cute little image slider display, which will contain some text talking about o
 - [x] Figure out the "storyline" for the flow of the pictures, make it make sense and have a nice and cute ending.
 - [x] Make sure the images cant be selected, it happens sometimes and makes it look weird.
 - [x] Create bg-9, with a background of us and some icons of like babies, dogs, and marriage stuff, to show the future stuff.
-- [ ] Move slider-view to a new route, and add a home page with more of a reveal page for the slide.
-- [ ] For the new home view, create a button to the slider that looks like a little gift opening up.
+- [x] Move slider-view to a new route, and add a home page with more of a reveal page for the slide.
+- [x] For the new home view, create a button to the slider that looks like a little gift opening up.
 - [ ] See if i can deploy to like Vercel or something similar, would be cool to have it fully hosted.
