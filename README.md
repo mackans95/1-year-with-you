@@ -1,6 +1,6 @@
-# vue-slider-for-anniversary
+# 1-year-with-you
 
-A cute little image slider display, which will contain some text talking about our 1 year together so far! ❤️
+A small hobby project i made using Vue 3 + Typescript, to show to my partner on our anniversery.
 
 ## Left to do:
 - [x] Make sure the images don't overflow and actually fit properly to the size of the browser window.
