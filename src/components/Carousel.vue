@@ -5,13 +5,19 @@
 
     <!-- Navigation -->
     <div class="navigate">
-      <div v-if="currentSlide > 1" class="toggle-page left">
+      <div
+        v-if="currentSlide > 1"
+        class="toggle-page left"
+      >
         <i
           @click="prevSlide"
           class="fas fa-chevron-left"
         />
       </div>
-      <div v-if="currentSlide !== getSlideCount" class="toggle-page right">
+      <div
+        v-if="currentSlide !== getSlideCount"
+        class="toggle-page right"
+      >
         <i
           @click="nextSlide"
           class="fas fa-chevron-right"

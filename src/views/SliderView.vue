@@ -31,12 +31,11 @@
   // -- IMPORTS --
   import Carousel from '../components/Carousel.vue'
   import Slide from '../components/Slide.vue'
-  import audioFile from '../../public/Dandelions.mp4'
-import { onMounted, onUnmounted } from 'vue';
+  import audioFile from '/Dandelions.mp4'
+  import { onMounted, onUnmounted } from 'vue'
 
   // -- VARIABLES --
   const song = new Audio(audioFile)
-
 
   const carouselSlides = [
     {
@@ -81,7 +80,7 @@ import { onMounted, onUnmounted } from 'vue';
     }
   ]
 
-  // -- LIFE CYCLE HOOKS -- 
+  // -- LIFE CYCLE HOOKS --
   onMounted(() => {
     song.volume = 0.2
     song.play()
