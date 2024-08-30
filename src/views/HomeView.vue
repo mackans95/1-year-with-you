@@ -74,9 +74,9 @@
   .text-box {
     color: white;
     position: absolute;
-    font-size: 8rem;
-    top: 10px;
-    left: calc(50% - 23rem);
+    font-size: 6rem;
+    bottom: 56rem;
+    left: calc(50% - 17rem);
     background-color: rgb(212, 172, 172);
     text-align: center;
     padding: 2rem;
