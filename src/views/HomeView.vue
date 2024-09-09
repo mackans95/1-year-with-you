@@ -74,11 +74,10 @@
   .text-box {
     color: white;
     position: absolute;
-    font-size: 6rem;
-    bottom: 56rem;
-    left: calc(50% - 17rem);
+    font-size: 4rem;
+    top: 1rem;
+    left: calc(50% - 13rem);
     background-color: rgb(212, 172, 172);
-    text-align: center;
     padding: 2rem;
     border-radius: 20px;
   }
